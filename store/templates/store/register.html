@@ -1,0 +1,61 @@
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+<section class="vh-90">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <h1>Registeration Form</h1>
+            <hr>
+          <form method="POST">
+            {% csrf_token %}
+
+             <!-- firstname input -->
+             <div class="form-outline mb-4">
+                <input type="text" id="form1Example13" class="form-control form-control-lg" name="firstname" />
+                <label class="form-label" for="form1Example13">firstname</label>
+              </div>
+
+               <!-- lastname input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form1Example13" class="form-control form-control-lg" name="lastname" />
+                <label class="form-label" for="form1Example13">lastname</label>
+              </div>
+            <!-- username input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form1Example13" class="form-control form-control-lg" name="username" />
+              <label class="form-label" for="form1Example13">Username</label>
+            </div>
+             <!-- email input -->
+             <div class="form-outline mb-4">
+                <input type="text" id="form1Example13" class="form-control form-control-lg" name="email" />
+                <label class="form-label" for="form1Example13">E-mail</label>
+              </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form1Example23" class="form-control form-control-lg" name="password" />
+              <label class="form-label" for="form1Example23">Password</label>
+            </div>
+
+            <!-- confirm Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="form1Example23" class="form-control form-control-lg" name="password2" />
+                <label class="form-label" for="form1Example23">Confirm Password</label>
+              </div>
+  
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+          </form>
+          <div class="text-center">
+            <p>Already Have Account <a href="#!">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

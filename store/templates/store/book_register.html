@@ -1,0 +1,61 @@
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+<section class="vh-90" style="margin:10rem;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <h1>Publish The Book</h1>
+            <hr>
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- book title input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form1Example13" class="form-control form-control-lg" name="title" />
+              <label class="form-label" for="form1Example13">Book Title</label>
+            </div>
+
+            <!-- book author input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form1Example13" class="form-control form-control-lg" name="author" />
+              <label class="form-label" for="form1Example13">Book Author</label>
+            </div>
+
+             <!-- book category input -->
+             <div class="form-outline mb-4">
+              <select class="form-select form-control-lg" id="form1Example13" name="category">
+                <option>Choose category</option>
+                {% for category in categories %}
+                <option>{{ category.category_name }}</option>
+                {% endfor %}
+              </select>
+              <label class="form-label" for="form1Example13">Book category</label>
+            </div>
+  
+            <!-- book price input -->
+            <div class="form-outline mb-4">
+              <input type="number" id="form1Example23" class="form-control form-control-lg" name="price" />
+              <label class="form-label" for="form1Example23">Book Price</label>
+            </div>
+
+             <!-- book description input -->
+             <div class="form-outline mb-4">
+                <textarea id="w3review" name="description" rows="4" cols="50">
+                </textarea>
+                <label class="form-label" for="form1Example23">Book Descriptions</label>
+              </div>
+            <input type="file" class="form-control" id="form1Example23" name="image" />
+            <label class="form-label" for="form1Example23">Upload Poster</label>
+  
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Publish</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
