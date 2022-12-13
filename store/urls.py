@@ -6,16 +6,19 @@ from .views import *
 urlpatterns = [
 
     path('', home, name='home'),
-    path("products/", products, name="store"),
+    path("products/", product, name="store"),
     path("about/", about, name="about_us"),
     path("contacts/", contact, name="contact_us"),
+    path('products/<str:pk>/', viewBook, name="single_book"),
     # ----------------------------------------------------------------------------------------
     path('cart/', cart, name="cart"),
-    path('cart/', cart, name="cart"),
-	path('checkout/', checkout, name="checkout"),
-#  ------------------------------------------------------------------------------------------------------
+    path('checkout/', checkout, name="checkout"),
+    #  ------------------------------------------------------------------------------------------------------
     path('login/', login, name='login'),
     path('logout/', logout, name='logout'),
     path('user_register/', register, name='register'),
-    path('book_register/', book_register, name='book_register')
+    path('book_register/', book_register, name='book_register'),
+    path('update_item/', updateItem, name='update_item'),
 ]
+urlpatterns += static(settings.MEDIA_URL,
+                      document_root=settings.MEDIA_ROOT)

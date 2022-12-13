@@ -30,7 +30,7 @@
               <select class="form-select form-control-lg" id="form1Example13" name="category">
                 <option>Choose category</option>
                 {% for category in categories %}
-                <option>{{ category.category_name }}</option>
+                <option value="{{category.category_name}}">{{ category.category_name }}</option>
                 {% endfor %}
               </select>
               <label class="form-label" for="form1Example13">Book category</label>

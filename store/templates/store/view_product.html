@@ -1,0 +1,57 @@
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container pb-5 " style="margin:10rem;">
+    <div class="row d-flex mt-3">
+        <div class="col-6">
+            <div class="card" style="max-width: 20rem">
+                <!-- Card image -->
+                {% if product.imageURL %}
+                <img
+                        alt=""
+                        class="img"
+                        src="{{product.imageURL}}"
+                        srcset=""
+                />
+                {% else %}
+                <img src="https://www.bbc.com/news/in-pictures-60497480"/>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <!--movie description-->
+        <div class="col-6 px-3">
+            <table class="table table-borderless w-95 px-5">
+                <thead>
+                <h2 class="text-center">Product Description</h2>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Title:</td>
+                    <td>{{ product.name }}</td>
+                </tr>
+                <tr>
+                    <td>Author:</td>
+                    <td>{{ product.author }}</td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>{{ product.descriptions }}</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>${{ product.price|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <td class="m-5"><span
+                    ><button class="btn btn-outline-danger add-btn update-cart" data-action="add"
+                             data-product={{product.id}}>Add to Cart</button></span
+                    ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -37,15 +37,15 @@
                     ></a>
                 </div>
             </div>
+            {% for product in products %}
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="#"><img alt="" class="w-5" src="{% static 'assets/images/book1.jpg'%}"/></a>
+                    <a href="#"><img alt="" class="w-2" src="{{ product.imageURL }}" style="height:25rem;"/></a>
                     <div class="down-content">
-                        <a href="#"><h4>Tittle goes here</h4></a>
-                        <h6>$25.75</h6>
+                        <a href="#"><h4>{{ product.name }}</h4></a>
+                        <h6>${{ product.price|floatformat:2 }}</h6>
                         <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis
-                            nulla aspernatur.
+                            {{ product.descriptions }}
                         </p>
                         <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
@@ -54,49 +54,12 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                         </ul>
-                        <span><a class="add_cart" href="about.html">Add to cart</a></span>
+                        <span><button class="btn btn-outline-danger add-btn update-cart" data-action="add"
+                                             data-product={{product.id}}>Add to Cart</button></span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img alt="" src="{% static 'assets/images/book1.jpg'%}"/></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Tittle goes here</h4></a>
-                        <h6>$30.25</h6>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis
-                            nulla aspernatur.
-                        </p>
-                        <ul class="stars">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span><a class="add_cart" href="about.html">Add to cart</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img alt="" src="{% static 'assets/images/book1.jpg'%}"/></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Tittle goes here</h4></a>
-                        <h6>$20.45</h6>
-                        <p>Sixteen Clothing is free CSS template provided by TemplateMo.</p>
-                        <ul class="stars">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span><a class="add_cart" href="about.html">Add to cart</a></span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
