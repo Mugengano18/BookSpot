@@ -66,7 +66,7 @@ def login(request):
             auth.login(request, user)
             messages.success(request, f'Hi, {username} login successfull')
             if user.is_staff == True or user.is_superuser == True:
-                return redirect('store')
+                return redirect('dashboard')
             return redirect('store')
         else:
             messages.error(request, 'Invalid login credentials')
@@ -109,7 +109,6 @@ def register(request):
         else:
             messages.error(request, 'Password do not match')
             return redirect('register')
-            print(password == password2)
     else:
 
         return render(request, 'store/register.html')
