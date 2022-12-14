@@ -222,3 +222,11 @@ def viewBook(request, pk):
         'product': single_product
     }
     return render(request, 'store/view_product.html', context)
+
+def Dashboard(request):
+    orderItems = OrderItem.objects.all()
+    context = {
+        'orderItems':orderItems,
+    }
+
+    return render(request, 'store/dashboard.html', context)
