@@ -13,28 +13,16 @@
     <nav>
       <ul>
         <li><a href="#" class="logo">
-          <img src="./pic/logo.jpg">
+          <img src="{{ request.user.profile.image.url }}">
           <span class="nav-item">Admin</span>
         </a></li>
         <li><a href="#">
           <i class="fas fa-menorah"></i>
           <span class="nav-item">Dashboard</span>
         </a></li>
-        <li><a href="#">
-          <i class="fas fa-comment"></i>
-          <span class="nav-item">Message</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-database"></i>
-          <span class="nav-item">Report</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-chart-bar"></i>
-          <span class="nav-item">Attendance</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-cog"></i>
-          <span class="nav-item">Setting</span>
+        <li><a href="{% url 'profile'%}">
+          <i class="fas fa-user"></i>
+          <span class="nav-item">User Profile</span>
         </a></li>
 
         <li><a href="{% url 'logout' %}" class="logout">
@@ -47,7 +35,7 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>System User</h1>
+        <h1>Admin Dashboard</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       <div class="users">
@@ -58,7 +46,7 @@
           <div class="per">
             <table>
               <tr>
-                <td><span>87%</span></td>
+                <td><span>{{ users }}</span></td>
               </tr>
               <tr>
                 <td></td>
@@ -74,7 +62,7 @@
           <div class="per">
             <table>
               <tr>
-                <td><span>85%</span></td>
+                <td><span>{{ products }}</span></td>
               </tr>
               <tr>
                 <td></td>
@@ -91,7 +79,7 @@
             <table>
               <tr>
                 <td></td>
-                <td><span>92%</span></td>
+                <td><span>{{ orders }}</span></td>
               </tr>
               <tr>
                 <td></td>
@@ -107,7 +95,7 @@
           <div class="per">
             <table>
               <tr>
-                <td><span>82%</span></td>
+                <td><span>0</span></td>
               </tr>
               <tr>
                 <td></td>

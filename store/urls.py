@@ -20,6 +20,7 @@ urlpatterns = [
     path('book_register/', book_register, name='book_register'),
     path('update_item/', updateItem, name='update_item'),
     path('dashboard/', Dashboard, name='dashboard'),
+    path('profile/', profile, name='profile' ),
 ]
 urlpatterns += static(settings.MEDIA_URL,
                       document_root=settings.MEDIA_ROOT)
