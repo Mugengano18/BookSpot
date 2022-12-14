@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | User</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="{{ request.user.profile.image.url }}">
+          <span class="nav-item">Admin</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="{% url 'profile'%}">
+          <i class="fas fa-user"></i>
+          <span class="nav-item">User Profile</span>
+        </a></li>
+
+        <li><a href="{% url 'logout' %}" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Admin Dashboard</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      <div class="users">
+        <div class="card">
+          <img src="{% static 'img/icons/group.png' %}">
+          <h4>System User</h4>
+          <p></p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>{{ users }}</span></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/icons/product.png' %}">
+          <h4>Product</h4>
+          <p></p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>{{ products }}</span></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/icons/order.png' %}">
+          <h4>orders</h4>
+          <p></p>
+          <div class="per">
+            <table>
+              <tr>
+                <td></td>
+                <td><span>{{ orders }}</span></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <img src="{% static 'img/icons/shipping.jpg' %}">
+          <h4>Shipping</h4>
+          <p></p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>0</span></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>List Of Order Items</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Customer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for orderItem in orderItems %}
+              <tr>
+                <td>{{ orderItem.date_added }}</td>
+                <td>{{ orderItem.product }}</td>
+                <td nowrap="nowrap">{{ orderItem.quantity }}</td>
+                <td>{{ orderItem.order.customer.username }}</td>
+              </tr>
+             {% endfor %}
+              
+             
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>
